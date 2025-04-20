@@ -4,7 +4,7 @@
 
 By Dragonmodder (Jhon)
 
-Whiter Client é uma ferramenta de administração remota (RAT) desenvolvida em Python puro, projetada para fins educacionais e demonstrações de segurança cibernética.
+Whiter Client é uma ferramenta de administração remota (RAT) e também um spyware, desenvolvida em Python puro. 
 
 Recursos principais:
 
