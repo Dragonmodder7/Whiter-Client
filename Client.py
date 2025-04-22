@@ -16,27 +16,32 @@ def banner():
 """)
 
 def menu():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((HOST, PORT))
-    print(s.recv(2048).decode())
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.connect((HOST, PORT))
+        print(s.recv(2048).decode())
 
-    while True:
-        print("\n[ MENU ]")
-        print("1 - Enviar comando")
-        print("2 - Sair")
-        op = input("> ")
+        while True:
+            print("\n[ MENU ]")
+            print("1 - Enviar comando")
+            print("2 - Sair")
+            op = input("> ")
 
-        if op == "1":
-            comando = input("Comando > ")
-            s.send(comando.encode())
-            resposta = s.recv(4096).decode()
-            print(resposta)
-        elif op == "2":
-            s.send(b"exit")
-            break
-        else:
-            print("Opção inválida.")
-    s.close()
+            if op == "1":
+                comando = input("Comando > ")
+                s.send(comando.encode())
+                resposta = s.recv(4096).decode()
+                print(resposta)
+            elif op == "2":
+                s.send(b"exit")
+                break
+            else:
+                print("Opção inválida.")
+        s.close()
+    except ConnectionError:
+        print("Erro ao tentar se conectar ao servidor.")
+    except Exception as e:
+        print(f"Erro inesperado: {e}")
 
 banner()
 menu()
