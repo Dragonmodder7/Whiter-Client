@@ -8,9 +8,8 @@ Whiter Client é uma ferramenta de administração remota (RAT) e também um spy
 
 Recursos principais:
 
-Acesso a webcam
-Acesso remoto ao console da vítima
-Acesso ao pc/celular da vítima
+Acesso a webcam, 
+Acesso remoto a certas coisas
 
 Observações:
 
