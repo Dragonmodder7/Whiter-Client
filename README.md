@@ -15,7 +15,7 @@ Caso usar para o mau, eu não me responsabilizo por qualquer dado em telemóveis
 
 ### No Android (Termux):
 pkg update && pkg install git python -y
-git clone https://github.com/Dragonmodder7/Whiter-Client.git
+git clone https://github.com/JhonLamdenberguer/Whiter-Client.git
 cd Whiter-Client
 python3 client.py
 
