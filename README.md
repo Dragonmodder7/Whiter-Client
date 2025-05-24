@@ -22,7 +22,7 @@ python3 client.py
 No Linux:
 
 sudo apt update && sudo apt install git python -y
-git clone https://github.com/Dragonmodder7/Whiter-Client.git
+git clone https://github.com/JhonLamdenberguer/Whiter-Client.git
 cd Whiter-Client
 python3 client.py
 
